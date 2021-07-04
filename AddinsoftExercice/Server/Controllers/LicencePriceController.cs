@@ -1,9 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Server.Models;
+using Server.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Server.Controllers
@@ -12,20 +15,36 @@ namespace Server.Controllers
     [ApiController]
     public class LicencePriceController : ControllerBase
     {
+        private readonly LicenceRepository licenceRepository;
+        public LicencePriceController(LicenceRepository licenceRepository)
+        {
+            this.licenceRepository = licenceRepository;
+        }
+
         // GET: api/<LicencePriceController>
         [HttpGet]
-        public ActionResult<LicencePrice> Get(int quantity, string currency)
+        public async Task<ActionResult<LicencePrice>> Get(int quantity, string currency)
         {
+            LicencePrice licencePrice;
+                        
             if (quantity <= 0)
             {
-                return BadRequest("Quantity must be more than 0");
+                return BadRequest(new {message = "quantity must be more than zero"});
+            }
+
+            try
+            {
+                licencePrice = await this.licenceRepository.ProcessLicencePrice(quantity);
+            }
+            catch (HttpRequestException e)
+            {
+                return BadRequest(new { message = e.Message });
             }
 
             //handle bad currency
-            LicencePrice price = new LicencePrice();
-            price.Quantity = quantity;
-            price.Currency = currency;
-            return price;
+            return licencePrice;
         }
+
+
     }
 }
