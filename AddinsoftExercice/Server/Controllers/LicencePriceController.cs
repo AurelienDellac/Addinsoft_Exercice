@@ -22,10 +22,10 @@ namespace Server.Controllers
             }
 
             //handle bad currency
-            LicencePrice quote = new LicencePrice();
-            quote.Quantity = quantity;
-            quote.Currency = currency;
-            return quote;
+            LicencePrice price = new LicencePrice();
+            price.Quantity = quantity;
+            price.Currency = currency;
+            return price;
         }
     }
 }
