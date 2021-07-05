@@ -8,7 +8,7 @@ Ce projet a été réalisé dans le cadre d'un exercice soumit par Addinsoft. Le
 
 Pour installer le projet, il faut cloner la branche master du repository GitHub ou en télécharger l'archive zip depuis cette branche. Ensuite, il faut ouvrir la solution (AddinsoftExercice.sln) dans Visual Studio.
 
-Avant de pouvoir utiliser le projet, il faut configurer les clés d'API et les tokens utilisés par le serveur. Ces données doivent être stockées dans les user-secrets .NET. Il faut donc se placer dans le ***répertoire du projet Server*** et utiliser la commande suivante pour activer les user-secrets :
+Avant de pouvoir utiliser le projet, il faut configurer les clés d'API et les tokens utilisés par le serveur. Ces données doivent être stockées dans les user-secrets .NET. Il faut donc se placer dans le ***répertoire du projet Server*** et utiliser la commande suivante pour activer les user-secrets (cf. plus loin pour plutôt utiliser le fichier appsettings.json) :
 
 `dotnet user-secrets init`
 
@@ -18,8 +18,14 @@ Il faut ensuite ajouter les données nécessaires au Server avec les commandes s
 
 `dotnet user-secrets set "Addinsoft:CurrencyConvertApiKey" "21c08906a273c47db105"`
 
+Il est aussi possible d'indiquer ces champs dans le fichier ***appsettings.json*** du serveur. Cela aura pour avantage de fonctionner avec un build du projet. Il faut donc ajouter ces deux lignes au fichier :
+
+`"AddinsoftXlstatApiUrl": "https://api.addinsoft.net/exercise/price/xlstat"`
+
+`"CurrencyConvertApiUrl": "https://free.currconv.com/api/v7/convert"`
+
 Ces deux commandes ajoutent respectivement le token pour l'API Xlstat et la clé pour l'API de conversion de devises.
-L'installation est terminée il ne reste plus qu'à lancer les deux programmes.
+L'installation est terminée, il ne reste plus qu'à lancer les deux programmes, soit depuis Visual Studio, soit en faisant un build et donc avec leur exécutable repéctif.
 
 # Choix techniques
 Les deux programmes sont réalisés en C# .NET Core car c'est une technologie que j'apprécie et que je n'avais j'amais réalisé d'API ainsi, c'était donc l'occasion de m'y essayer.
