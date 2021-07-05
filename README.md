@@ -25,7 +25,9 @@ Il est aussi possible d'indiquer ces champs dans le fichier ***appsettings.json*
 `"Addinsoft:CurrencyConvertApiKey": "21c08906a273c47db105"`
 
 Ces deux commandes ajoutent respectivement le token pour l'API Xlstat et la clé pour l'API de conversion de devises.
-L'installation est terminée, il ne reste plus qu'à lancer les deux programmes, soit depuis Visual Studio, soit en faisant un build et donc avec leur exécutable repéctif.
+L'installation est terminée, il ne reste plus qu'à lancer les deux programmes, soit depuis Visual Studio, soit en faisant un build et donc avec leur exécutable respectif. 
+
+Dans le cas de l'utilisation de builds, il faudra changer l'adresse utilisée par le client. Cette modification se fait dans le fichier Client.dll.config du build. Il faut changer le port pour celui indiqué par le serveur dans la console qui s'ouvre en le lançant depuis le build (5001 normalement).
 
 # Choix techniques
 Les deux programmes sont réalisés en C# .NET Core car c'est une technologie que j'apprécie et que je n'avais j'amais réalisé d'API ainsi, c'était donc l'occasion de m'y essayer.
@@ -36,7 +38,7 @@ Aucune réelle problématique ne s'est imposée à moi exceptée celle de faire 
 Aussi, dans le cadre de développement d'API j'ai toujours un doute sur où gérer les erreurs : en amont sur le client ou plutôt au niveau de l'API ? Surement les deux mais je suis toujours hésitant donc cette aspect n'est pas le mieux conçu.
 
 # Choix de conception
-Malgré la taille très réduite des projets j'ai essayé de respecter au mieux les bonnes pratiques de conception objet. J'ai donc mis en place un pattern Repository et de l'injection de dépendances. Les deux projets ont une architecture MCV/MVVM.
+Malgré la taille très réduite des projets j'ai essayé de respecter au mieux les bonnes pratiques de conception objet. J'ai donc mis en place un pattern Repository et de l'injection de dépendances. Les deux projets ont une architecture MVC/MVVM.
 
 # Améliorations possibles
 Plusieurs améliorations peuvent être apportées à la solution :
