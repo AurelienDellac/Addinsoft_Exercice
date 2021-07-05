@@ -6,7 +6,7 @@ Ce projet a été réalisé dans le cadre d'un exercice soumit par Addinsoft. Le
 
 # Installation
 
-Pour installer le projet, il faut cloner la branche master du repository GitHub ou en télécharger l'archive zip depuis cette branche. Ensuite, il faut ouvrir la solution (AddinsoftExercice.sln) dans Visual Studio.
+Pour installer le projet, il faut cloner la branche ***develop*** du repository GitHub ou en télécharger l'archive zip depuis cette branche. Ensuite, il faut ouvrir la solution (AddinsoftExercice.sln) dans Visual Studio.
 
 Avant de pouvoir utiliser le projet, il faut configurer les clés d'API et les tokens utilisés par le serveur. Ces données doivent être stockées dans les user-secrets .NET. Il faut donc se placer dans le ***répertoire du projet Server*** et utiliser la commande suivante pour activer les user-secrets (cf. plus loin pour plutôt utiliser le fichier appsettings.json) :
 
