@@ -32,8 +32,9 @@ namespace Client.Repositories
 
             if(response.IsSuccessStatusCode)
             {
-                preview = BuildLicencePreview(
-                    await JsonSerializer.DeserializeAsync<LicencePrice>(await response.Content.ReadAsStreamAsync()));
+                preview = 
+                    (await JsonSerializer.DeserializeAsync<LicencePrice>(await response.Content.ReadAsStreamAsync()))
+                    .ToString();
             } else
             {
                 preview = JObject.Parse(await response.Content.ReadAsStringAsync())["message"].ToString();
@@ -75,29 +76,6 @@ namespace Client.Repositories
 
             uriBuilder.Query = query.ToString();
             return uriBuilder.Uri;
-        }
-        private string BuildLicencePreview(LicencePrice licencePrice)
-        {
-            StringBuilder builder = new StringBuilder("Une licence coûte ")
-            .Append(licencePrice.Unit)
-            .Append(" ")
-            .Append(licencePrice.Currency)
-            .Append(".");
-
-            if (licencePrice.Quantity > 1)
-            {
-                builder.Append(" Le prix de ")
-                    .Append(licencePrice.Quantity)
-                    .Append(" licences est donc de : ")
-                    .Append(licencePrice.Total)
-                    .Append(" ")
-                    .Append(licencePrice.Currency);
-            } else
-            {
-                //do nothing
-            }
-
-            return builder.ToString();
         }
     }
 }
