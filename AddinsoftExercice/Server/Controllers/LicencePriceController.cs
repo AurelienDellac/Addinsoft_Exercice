@@ -4,6 +4,7 @@ using Server.Models;
 using Server.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -41,7 +42,18 @@ namespace Server.Controllers
                 return BadRequest(new { message = e.Message });
             }
 
-            //handle bad currency
+            currency = currency.ToUpper();
+            var currencyCultures = CultureInfo
+                .GetCultures(CultureTypes.SpecificCultures)
+                .Where(c => new RegionInfo(c.LCID).ISOCurrencySymbol == currency)
+                .ToArray();
+
+            if(currencyCultures.Length <= 0)
+            {
+                return BadRequest(new { message = "currency not valid" });
+            }
+
+            licencePrice.Currency = currency;
             return licencePrice;
         }
 

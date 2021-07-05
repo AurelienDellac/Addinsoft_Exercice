@@ -22,7 +22,7 @@ namespace Server.Repositories
         }
         public async Task<LicencePrice> ProcessLicencePrice(int quantity)
         {
-            UriBuilder uriBuilder = new UriBuilder(configuration["AddinsoftXlstatApi"]);
+            UriBuilder uriBuilder = new UriBuilder(configuration["AddinsoftXlstatApiUrl"]);
             var query = HttpUtility.ParseQueryString(uriBuilder.Query);
             query["quantity"] = quantity.ToString();
             uriBuilder.Query = query.ToString();
