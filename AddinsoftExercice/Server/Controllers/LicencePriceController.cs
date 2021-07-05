@@ -24,13 +24,13 @@ namespace Server.Controllers
 
         // GET: api/<LicencePriceController>
         [HttpGet]
-        public async Task<ActionResult<LicencePrice>> Get(int quantity, string currency)
+        public async Task<ActionResult<LicencePrice>> Get(int quantity, string currency = "USD")
         {
             LicencePrice licencePrice;
                         
             if (quantity <= 0)
             {
-                return BadRequest(new {message = "quantity must be more than zero"});
+                return BadRequest(new {message = "quantity must be higher than zero"});
             } else
             {
                 //do nothing

@@ -32,17 +32,18 @@ namespace Client
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            try
+            int quantity;
+
+            if(int.TryParse(licenceNumber.Text, out quantity))
             {
                 licencePricePreview.Text = await licenceRepository.GetLicencePricePreview(
-                    int.Parse(licenceNumber.Text),
+                    quantity,
                     currency.Text);
-            } catch (Exception exception)
+            } else
             {
-                Console.WriteLine(exception);
-                licencePricePreview.Text = e.ToString();
+                licencePricePreview.Text = "La quantité de licence indiqué n'est pas un nombre correct !";
             }
-
+         
             licencePricePreview.Visibility = Visibility.Visible;
         }
     }
