@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Client.Models
 {
-    class LicencePrice
+    public class LicencePrice
     {
         [JsonPropertyName("unit")]
         public double Unit { get; set; }

@@ -7,14 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBox Text="1" TextWrapping="Wrap" Margin="30,127,439,231" TextChanged="TextBox_TextChanged"/>
-        <TextBox Text="EUR" TextWrapping="Wrap" Margin="427,126,47,234"/>
+        <TextBox x:Name="licenceNumber" Text="1" TextWrapping="Wrap" Margin="30,127,439,231"/>
+        <TextBox x:Name="currency" Text="EUR" TextWrapping="Wrap" Margin="427,126,47,234"/>
         <Label Content="Exercice Addinsoft" HorizontalAlignment="Left" Margin="11,-4,0,0" VerticalAlignment="Top" Height="49" Width="724" FontSize="30" FontWeight="Bold"/>
         <Label Content="Outil de visualisation du prix du logiciel XLSTAT" HorizontalAlignment="Left" Margin="16,55,0,0" VerticalAlignment="Top" Height="49" Width="777" FontSize="25"/>
         <Label Content="Nombre de licences souhaitées" HorizontalAlignment="Left" Margin="24,103,0,0" VerticalAlignment="Top"/>
         <Label Content="Devise souhaitée - CODE ISO (exemple : euro = EUR)" HorizontalAlignment="Left" Margin="421,104,0,0" VerticalAlignment="Top"/>
-        <Button Content="Calculer le prix" HorizontalAlignment="Left" Margin="330,220,0,0" VerticalAlignment="Top" Height="42" Width="123"/>
-        <TextBlock HorizontalAlignment="Left" Height="110" Margin="136,293,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="532" FontSize="20" Visibility="Hidden"/>
+        <Button Content="Calculer le prix" HorizontalAlignment="Left" Margin="330,220,0,0" VerticalAlignment="Top" Height="42" Width="123" Click="Button_Click"/>
+        <TextBlock x:Name="licencePricePreview" HorizontalAlignment="Left" Height="110" Margin="136,293,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="532" FontSize="20" Visibility="Hidden"/>
 
     </Grid>
 </Window>

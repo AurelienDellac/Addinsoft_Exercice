@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Client.Models;
+using Client.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,28 @@ namespace Client
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private readonly LicenceRepository licenceRepository;
+
+        public MainWindow(LicenceRepository licenceRepository)
         {
             InitializeComponent();
+            this.licenceRepository = licenceRepository;
+        }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                licencePricePreview.Text = await licenceRepository.GetLicencePricePreview(
+                    int.Parse(licenceNumber.Text),
+                    currency.Text);
+            } catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+                licencePricePreview.Text = e.ToString();
+            }
+
+            licencePricePreview.Visibility = Visibility.Visible;
         }
     }
 }
