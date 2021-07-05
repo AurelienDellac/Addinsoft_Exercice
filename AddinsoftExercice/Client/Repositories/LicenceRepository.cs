@@ -63,7 +63,14 @@ namespace Client.Repositories
 
             foreach (KeyValuePair<String, String> entry in queryParameters)
             {
-                query[entry.Key] = entry.Value;
+                if(!string.IsNullOrEmpty(entry.Value))
+                {
+                    query[entry.Key] = entry.Value;
+                } else
+                {
+                    //do nothing
+                }
+                
             }
 
             uriBuilder.Query = query.ToString();
