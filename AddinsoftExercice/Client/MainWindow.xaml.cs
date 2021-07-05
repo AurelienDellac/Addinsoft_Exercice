@@ -41,7 +41,7 @@ namespace Client
                     currency.Text);
             } else
             {
-                licencePricePreview.Text = "La quantité de licence indiqué n'est pas un nombre correct !";
+                licencePricePreview.Text = "La quantité de licence indiquée n'est pas correcte !";
             }
          
             licencePricePreview.Visibility = Visibility.Visible;
