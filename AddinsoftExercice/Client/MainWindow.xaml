@@ -15,6 +15,7 @@
         <Label Content="Devise souhaitée - CODE ISO (par défaut : USD)" HorizontalAlignment="Left" Margin="421,104,0,0" VerticalAlignment="Top"/>
         <Button Content="Calculer le prix" HorizontalAlignment="Left" Margin="330,220,0,0" VerticalAlignment="Top" Height="42" Width="123" Click="Button_Click"/>
         <TextBlock x:Name="licencePricePreview" HorizontalAlignment="Left" Height="110" Margin="136,293,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="532" FontSize="20" Visibility="Hidden"/>
+        <Label x:Name="loading" Content="LOADING..." Margin="307,292,321,56" FontSize="30" Visibility="Hidden"/>
 
     </Grid>
 </Window>
