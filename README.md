@@ -20,9 +20,9 @@ Il faut ensuite ajouter les données nécessaires au Server avec les commandes s
 
 Il est aussi possible d'indiquer ces champs dans le fichier ***appsettings.json*** du serveur. Cela aura pour avantage de fonctionner avec un build du projet. Il faut donc ajouter ces deux lignes au fichier :
 
-`"AddinsoftXlstatApiUrl": "https://api.addinsoft.net/exercise/price/xlstat"`
+`"Addinsoft:XlstatApiToken": "3615montoken"`
 
-`"CurrencyConvertApiUrl": "https://free.currconv.com/api/v7/convert"`
+`"Addinsoft:CurrencyConvertApiKey": "21c08906a273c47db105"`
 
 Ces deux commandes ajoutent respectivement le token pour l'API Xlstat et la clé pour l'API de conversion de devises.
 L'installation est terminée, il ne reste plus qu'à lancer les deux programmes, soit depuis Visual Studio, soit en faisant un build et donc avec leur exécutable repéctif.
